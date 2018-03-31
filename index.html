@@ -6,60 +6,56 @@
     <title>Pet PillBox</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
-    <script src="./assets/javascript/main.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 </head>
+
 <body>
-        <div class="jumbotron jumbotron-fluid">
-                <div class="container">
-                  <h1 class="display-4">Pet PillBox</h1>
-                </div>
-            </div>
-        <nav class="navbar sticky-top navbar-light bg-light">
-        <nav class="navbar navbar-light bg-light ">
-            <div>
-                <a href="./index.html" class= "button">New Search |</a>
-                <a href="./savedlists.html" class= "button">| Saved Lists |</a>
-                <a href="./about.html" class= "button">| About</a>
-            </div>
-        </nav>
-        </nav>
-    
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Pet PillBox</h1>
+    </div>
+  </div>
+
+  <nav class="navbar sticky-top navbar-light bg-light">
+    <nav class="navbar navbar-light bg-light ">
+      <div>
+        <a href="./index.html" class= "button">New Search |</a>
+        <a href="./savedlists.html" class= "button">| Saved Lists |</a>
+        <a href="./about.html" class= "button">| About</a>
+      </div>
+    </nav>
+  </nav>
+
+  <br>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2 js-search-term" type="search" placeholder="Search medication name" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0 js-search" type="submit">Search</button>
+  </form>
+  <br>
+
+  <!-- search results populate in this div-->
+  <div>
+    <h5 class="card-title">Your Results  </h5>
+    <div class="card drugs-appear-here" style="width: 30rem;">
+    <div class="card-body">
+      <p class="card-text"></p>
+    </div>
+    </div>
     </div>
     <br>
-                <form class="form-inline">
-                  <input class="form-control mr-sm-2" type="search" placeholder="Search medication name" aria-label="Search">
-                  <button class="btn btn-outline-success my-2 my-sm-0 js-search" type="submit">Search</button>
-                </form>
-                <br>
-        </nav>
-        <!-- search results populate in this div-->
-        <div class= "drugs-appear-here">
-                <div class="card" style="width: 30rem;">
-                        <div class="card-body">
-                          <h5 class="card-title">Your Results  </h5>
-                          <p class="card-text"></p>
-                          
-                        </div>
-                      </div>
+    <br>
+  <!-- added results populate in this div-->
+  <div class= "user-drugs-appear-here">
+    <div class="card" style="width: 30rem;">
+      <div class="card-body">
+        <h5 class="card-title">Your Temporary List  </h5>
+        <a href="#" class="btn btn-primary">Save</a>
+        <p class="card-text"></p>
+      </div>
+    </div>
+  </div>
 
-        </div>
-          <!-- added results populate in this div-->
-          <div class= "user-drugs-appear-here">
-                <div class="card" style="width: 30rem;">
-                        <div class="card-body">
-                          <h5 class="card-title">Your Lists  </h5>
-                          <a href="#" class="btn btn-primary">Save</a>
-                          <p class="card-text"></p>
-                          
-                        </div>
-                      </div>
-
-        </div>
-       
-       
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="./assets/javascript/main.js"></script>
 </body>
 </html>
