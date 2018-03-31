@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Pet PillBox</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+</head>
+<body>
+    <script>
+// Here we are building the URL we need to query the database
+    drugName = 
+    var queryURL = "https://dailymed.nlm.nih.gov/dailymed/services/v2/drugnames.json?drug_name=tylenol" + drugName;
+
+    // Here we run our AJAX call to the OpenWeatherMap API
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    })
+      // We store all of the retrieved data inside of an object called "response"
+      .then(function(response) {
+
+        // Log the queryURL
+        console.log(queryURL);
+
+        // Log the resulting object
+        console.log(response);
+
+        </script>
+
+</body>
+</html>

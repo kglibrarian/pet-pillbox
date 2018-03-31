@@ -7,8 +7,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
     <script src="./assets/javascript/main.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 </head>
 <body>
+        <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                  <h1 class="display-4">Pet PillBox</h1>
+                </div>
+            </div>
+        <nav class="navbar sticky-top navbar-light bg-light">
+        <nav class="navbar navbar-light bg-light ">
+            <div>
+                <a href="./index.html" class= "button">New Search |</a>
+                <a href="./savedlists.html" class= "button">| Saved Lists |</a>
+                <a href="./about.html" class= "button">| About</a>
+            </div>
+        </nav>
+        </nav>
     
+    </div>
+    <br>
+                <form class="form-inline">
+                  <input class="form-control mr-sm-2" type="search" placeholder="Search medication name" aria-label="Search">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                <br>
+        </nav>
+        <!-- search results populate in this div-->
+        <div class= "drugs-appear-here">
+                <div class="card" style="width: 30rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">Your Results</h5>
+                          <p class="card-text"></p>
+                          <a href="#" class="btn btn-primary">Save</a>
+                        </div>
+                      </div>
+
+        </div>
+       
 </body>
 </html>
