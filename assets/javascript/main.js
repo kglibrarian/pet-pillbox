@@ -1,8 +1,4 @@
-
-
 $(document).ready(function(){
-    
-
 $(".js-search").on("click", function() {
         //Prevent the default function of button
         event.preventDefault(); 
@@ -53,7 +49,7 @@ $(".js-search").on("click", function() {
           // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
           $(".drugs-appear-here").prepend(drugDiv);
 
-        }
+        };
     });  
 
     $(".add").on("click", function() {
@@ -96,11 +92,9 @@ $(".js-search").on("click", function() {
     // }
 
 
-
-
-
-
 });   
+});   
+
     
     
     
