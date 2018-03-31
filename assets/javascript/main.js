@@ -36,16 +36,18 @@ $(document).ready(function(){
         // Looping through each result item
         for (var i = 0; i < results.length; i++) {
         
+            var drugName = results[i].drug_name
         // Creating and storing a div tag
         var drugDiv = $("<div>");
-    
+        
         // Creating a paragraph tag with the result item's rating
-        var p = $("<p>").text(results[i].drug_name);
+        var p = $("<p>").text(drugName);
 
         //Creating an add button next to each drug name
-        var b = $("<button class='delete'>").text("+").attr("add", i);
+        var b = $("<button class='add'>").text("+");
         p.prepend(b);
     
+        console.log(b);
         // Appending the paragraph to the drugDiv
         drugDiv.append(p);
 
@@ -55,43 +57,45 @@ $(document).ready(function(){
         };
     
     });  
+       
     
-        $(".add").on("click", function() {
-            //Prevent the default function of button
-            event.preventDefault(); 
+    });  
     
-            //Console log that the add button was pushed
-            console.log("The add button was pushed!");
-            
-            //Create a variable called searchTerm to hold the value that the user entered into the search box
-            var addedDrugTerm = $('.add').val();
-   
-            //Console log the addedDrugTerm  
-            console.log(addedDrugTerm);
     
-            // Creating and storing a div tag
-            var usersDrugDiv = $("<div>");
+    $(document).on("click", '.add', function() {
+        //Prevent the default function of button
+        event.preventDefault(); 
 
-            // Creating a paragraph tag with the item the user wants to add to their list
-            var p = $("<p>").text(addedDrugTerm);
-    
-            //Creating a delete button next to each drug name
-            var b = $("<button class='delete'>").text("-").attr("delete");
-            p.prepend(b);
-    
-            // Appending the paragraph to the drugDiv
-            usersDrugDiv.append(p);
+        //Console log that the add button was pushed
+        console.log("The add button was pushed!");
+        
+        //Create a variable called searchTerm to hold the value that the user entered into the search box
+        var addedDrugTerm = $('.add').closest().parent();
 
-           // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
-            $(".user-drugs-appear-here").prepend(usersDrugDiv);
-    
-        });
-    
-        // function emptyDrugDiv() {
-        //     $(".drugs-appear-here").empty();
-       // }
-    
-    });   
+        //Console log the addedDrugTerm  
+        console.log(addedDrugTerm);
+
+        // Creating and storing a div tag
+        var usersDrugDiv = $("<div>");
+
+        // Creating a paragraph tag with the item the user wants to add to their list
+        var p = $("<p>").text(addedDrugTerm);
+
+        //Creating a delete button next to each drug name
+        var b = $("<button class='delete'>").text("-").attr("delete");
+        p.prepend(b);
+
+        // Appending the paragraph to the drugDiv
+        usersDrugDiv.append(p);
+
+       // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
+        $(".user-drugs-appear-here").prepend(usersDrugDiv);
+
+    });
+
+    // function emptyDrugDiv() {
+    //     $(".drugs-appear-here").empty();
+   // }
     
 });   
     
