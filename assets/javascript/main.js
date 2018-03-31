@@ -89,6 +89,39 @@ $(".js-search").on("click", function() {
 
     });
 
+    // 1. Initialize Firebase
+    // var config = {
+    //     apiKey: "AIzaSyA_QypGPkcjPtylRDscf7-HQl8ribnFeIs",
+    //     authDomain: "time-sheet-55009.firebaseapp.com",
+    //     databaseURL: "https://time-sheet-55009.firebaseio.com",
+    //     storageBucket: "time-sheet-55009.appspot.com"
+    // };
+    
+    // firebase.initializeApp(config);
+    
+    // var database = firebase.database();
+
+    // // 2. Button for adding Employees
+    // $(".add").on("click", function(event) {
+    //     event.preventDefault();
+    
+    //     // Grabs user input
+    //     var empName = $("#employee-name-input").val().trim();
+            
+    //     // Creates local "temporary" object for holding employee data
+    //     var newEmp = {
+    //     name: empName,
+    //     role: empRole,
+    //     start: empStart,
+    //     rate: empRate
+    //     };
+  
+    // // Uploads employee data to the database
+    // database.ref().push(newEmp);
+
+
+
+
 
 
     // function emptyDrugDiv() {
