@@ -39,17 +39,19 @@ $(document).ready(function(){
             var drugName = results[i].drug_name
         // Creating and storing a div tag
         var drugDiv = $("<div>");
+        drugDiv.attr("data-id", i);
         
         // Creating a paragraph tag with the result item's rating
         var p = $("<p>").text(drugName);
 
         //Creating an add button next to each drug name
-        var b = $("<button class='add'>").text("+");
+        var b = $("<button class='add'>").text("+").attr("id", i);
         p.prepend(b);
     
         console.log(b);
         // Appending the paragraph to the drugDiv
         drugDiv.append(p);
+        
 
         // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
         $(".drugs-appear-here").prepend(drugDiv);
@@ -68,9 +70,11 @@ $(document).ready(function(){
 
         //Console log that the add button was pushed
         console.log("The add button was pushed!");
-        
+        console.log("This is the id on the clicked add " +$(this).attr('id'));
         //Create a variable called searchTerm to hold the value that the user entered into the search box
-        var addedDrugTerm = $('.add').closest().parent();
+        var clickedID = $(this).attr('id');
+       var addedDrugTerm = $("div").find('[data-id='+ clickedID + ']');
+       
 
         //Console log the addedDrugTerm  
         console.log(addedDrugTerm);
@@ -79,14 +83,14 @@ $(document).ready(function(){
         var usersDrugDiv = $("<div>");
 
         // Creating a paragraph tag with the item the user wants to add to their list
-        var p = $("<p>").text(addedDrugTerm);
+        // var p = $("<p>").text(addedDrugTerm);
 
         //Creating a delete button next to each drug name
-        var b = $("<button class='delete'>").text("-").attr("delete");
-        p.prepend(b);
+        // var b = $("<button class='delete'>").text("-").attr("delete");
+        // p.prepend(b);
 
         // Appending the paragraph to the drugDiv
-        usersDrugDiv.append(p);
+        usersDrugDiv.append(addedDrugTerm);
 
        // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
         $(".user-drugs-appear-here").prepend(usersDrugDiv);
