@@ -54,6 +54,7 @@ $(".js-search").on("click", function() {
           $(".drugs-appear-here").prepend(drugDiv);
 
         }
+        });
     });  
 
     $(".add").on("click", function() {
