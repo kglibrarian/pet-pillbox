@@ -66,9 +66,9 @@ $(document).ready(function(){
              
             
              //Create a variable called searchTerm to hold the value that the user entered into the search box
+
              var addedDrugTerm = $(this).parent().get(0).innerText.slice(1);
 
-            
              //Console log the addedDrugTerm  
              console.log("This is the added drug term: " + addedDrugTerm);
     
@@ -93,7 +93,7 @@ $(document).ready(function(){
            $(".user-drugs-appear-here").prepend(usersDrugDiv);
     
         });
-    
+        
     
     
         // function emptyDrugDiv() {
@@ -102,6 +102,15 @@ $(document).ready(function(){
     
     
     });   
+    $(".js-savelist").on("click", function() {
+        //Prevent the default function of button
+        event.preventDefault(); 
+                    
+        //Console log that the putton was pushed
+        console.log("The save button was pushed!");
+        //modal trigger 
+        
+        });
     });   
     
         
