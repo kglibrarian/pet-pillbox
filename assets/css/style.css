@@ -1,4 +1,9 @@
 .temp-list{
     padding: 15px;
-   
+}
+.navbar {
+    position: center;
+}
+.title{
+    text-align: center;
 }
