@@ -1,4 +1,7 @@
+
 $(document).ready(function(){
+    
+
 $(".js-search").on("click", function() {
         //Prevent the default function of button
         event.preventDefault(); 
@@ -39,7 +42,7 @@ $(".js-search").on("click", function() {
             var p = $("<p>").text(results[i].drug_name);
             
             //Creating an add button next to each drug name
-            var b = $("<button class='delete'>").text("+").attr("drug_name", "add", i);
+            var b = $("<button class= 'add'>").text("+");
             p.prepend(b);
 
 
@@ -52,7 +55,7 @@ $(".js-search").on("click", function() {
         };
     });  
 
-    $(".add").on("click", function() {
+    $(document).on('click', '.add', function() {
 
          //Prevent the default function of button
          event.preventDefault(); 
@@ -60,8 +63,10 @@ $(".js-search").on("click", function() {
          //Console log that the add button was pushed
          console.log("The add button was pushed!");
          
+        
          //Create a variable called searchTerm to hold the value that the user entered into the search box
-         var addedDrugTerm = $('.add').val();
+         var addedDrugTerm = $('.add').parent().get(0).innerText;
+    
          
          //Console log the addedDrugTerm  
          console.log(addedDrugTerm);
