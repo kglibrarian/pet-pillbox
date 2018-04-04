@@ -211,6 +211,9 @@ $(document).ready(function(){
             database.ref().push({ userList
 
             });
+
+            $(".user-drugs-appear-here").empty();
+
         // function createArray(drugInfo) {
         //     var userList=[];
         //     userList.push(drugInfo);
