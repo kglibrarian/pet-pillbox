@@ -1,9 +1,61 @@
 .temp-list{
     padding: 15px;
 }
-.navbar {
-    position: center;
-}
+
 .title{
     text-align: center;
+    font-family: 'Shadows Into Light Two', cursive;
+    font-size: 900px;
 }
+
+.add {
+    margin: 7px;
+    font-family: 'News Cycle', sans-serif;
+    font-weight: bold;
+    border-color: black;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 17px;
+    border-radius: 10px;
+}
+
+.delete{
+    margin: 7px;
+    font-family: 'News Cycle', sans-serif;
+    font-weight: bold;
+    border-color: black;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 17px;
+    border-radius: 10px;
+}
+
+.add:hover{
+    background-color: rgb(164, 210, 248);
+    color: black;
+}
+
+.delete:hover{
+    background-color:  rgb(164, 210, 248);
+    color: black;
+}
+
+input[type="button"], input[type="search"]{
+    font-family: 'News Cycle', sans-serif;
+    font-weight: bold;
+    border-color: black;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 17px;
+    border-radius: 5px;
+}
+.navbar {
+    text-align: center;
+}
+

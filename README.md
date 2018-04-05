@@ -1,1 +1,2 @@
 # pet-pillbox
+Welcome to Pet PillBox!  This is the go-to app for pet owners to help keep track of medication lists, purpose, dosage, directions, and warnings for their pets. The app allows users to create, save, edit, or email themselves a medication list for each of their pets. They can use this list for doggy daycares, vet visits, and other places that might require a medication list for their pet.
