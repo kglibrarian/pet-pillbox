@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en-us">
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,63 +9,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
 
+    <!-- Moment.js Reference -->
+    <!-- <script src="http://momentjs.com/downloads/moment.js"></script>   -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 </head>
 <body>
     <div class = "container">
         <div class="jumbotron jumbotron-fluid">
-                <div class="container">
-                  <h1 class="display-4">Pet PillBox</h1>
+            <div class="container">
+                <h1 class="display-4">Pet PillBox</h1>
+            </div>
+        </div>
+        <div id="login">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Sign-in  -->
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                <strong>Sign In</strong>
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <!-- Sign In Form -->
+                            <form>
+                                <div class="form-group">
+                                    <label for="user-id-input">User Id</label>
+                                    <input class="form-control" id="user-id-input" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email-input">Email</label>
+                                    <input class="form-control" id="email-input" type="text">
+                                </div>
+                                <button class="btn btn-primary" id="sign-in-btn" type="submit">Submit</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-        <nav class="navbar sticky-top navbar-light bg-light">
-        <nav class="navbar navbar-light bg-light ">
-            <div class = "navbar">
-                <a href="./index.html" class= "button">New Search |</a>
-                <a href="./savedlists.html" class= "button">| Saved Lists |</a>
-                <a href="./about.html" class= "button">| About</a>
-            </div>
-        </nav>
-        </nav>
-    <br>
-                <form class="form-inline">
-                  <input class="form-control mr-sm-2 js-search-term" type="search" placeholder="Search medication name" aria-label="Search" style="width: 20rem;">
-                  <button class="btn btn-outline-success my-2 my-sm-0 js-search" type="submit">Search</button>
-                </form>
-                <br>
-    
-        <!-- search results populate in this div-->
-        <div>
+        </div>
+        <div id="everything">
+            <nav class="navbar sticky-top navbar-light bg-light">
+                <nav class="navbar navbar-light bg-light ">
+                    <div class = "navbar">
+                        <a href="./index.html" class= "button">New Search |</a>
+                        <a href="./savedlists.html" class= "button">| Saved Lists |</a>
+                        <a href="./about.html" class= "button">| About</a>
+                    </div>
+                </nav>
+            </nav>
+            <br>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2 js-search-term" type="search" placeholder="Search medication name" aria-label="Search" style="width: 20rem;">
+                <button class="btn btn-outline-success my-2 my-sm-0 js-search" type="submit">Search</button>
+            </form>
+            <br>
+            <!-- search results populate in this div-->
+            <div>
                 <h5 class="card-title">Your Results  </h5>
                 <div class="card drugs-appear-here temp-list" style="width: 50rem;">
-                        <div class="card-body">
-                          <p class="card-text"></p>
-                          
-                        </div>
+                    <div class="card-body">
+                        <p class="card-text"></p>
+                    </div>
                 </div>
-        </div>
-        <br>
-        <br>
-          <!-- added results populate in this div-->
-        <div>
+            </div>
+            <br>
+            <br>
+            <!-- added results populate in this div-->
+            <div>
                 <h5 class="card-title">Your Temporary List </h5>
                 <div class="card user-drugs-appear-here temp-list" style="width: 50rem;">
-                        <div class="card-body">
-                                </div>
-                        </div>
-                          <!--<a href="#" class="btn btn-primary">Save</a>-->
-                         <button class="btn btn-outline-success my-2 my-sm-0 js-savelist" type="Save">Save</button>
-                         <!-- button modal -->
-                         
-                          
-                        
-                
-
+                    <div class="card-body"></div>
+                </div>
+                <!--<a href="#" class="btn btn-primary">Save</a>-->
+                <button class="btn btn-outline-success my-2 my-sm-0 js-savelist" type="Save">Save</button>
+                <!-- button modal --> 
+            </div>
         </div>
-</div>
-        <script src="https://code.jquery.com/jquery.js"></script>
-        <script src="./assets/javascript/main.js"></script>
+    </div>
 
-
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="./assets/javascript/main.js"></script>
 </body>
 </html>

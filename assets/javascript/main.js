@@ -1,6 +1,111 @@
 
 $(document).ready(function(){
+    $("#everything").hide();
+
+    var newUser = {
+        "userId": {
+          "email": {},
+          "petList":{}
+            
+        }
+    }
+
     
+/* global firebase moment */
+// Steps to complete:
+
+// 1. Initialize Firebase
+// 2. Create button for adding new employees - then update the html + update the database
+// 3. Create a way to retrieve employees from the employee database.
+// 4. Create a way to calculate the months worked. Using difference between start and current time.
+//    Then use moment.js formatting to set difference in months.
+// 5. Calculate Total billed
+
+// 1. Initialize Firebase
+
+// // Initialize Firebase
+// var config = {
+//     apiKey: "AIzaSyB7wYo9L1PAQIGpWj7f_3Z9sGX6ZF2eKSc",
+//     authDomain: "my-pet-pill-project.firebaseapp.com",
+//     databaseURL: "https://my-pet-pill-project.firebaseio.com",
+//     projectId: "my-pet-pill-project",
+//     storageBucket: "my-pet-pill-project.appspot.com",
+//     messagingSenderId: "808424558935"
+// };
+
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyDMAKT2l9OJ3XqZWcVH13y4u-A6Vk2931E",
+    authDomain: "pet-pillbox.firebaseapp.com",
+    databaseURL: "https://pet-pillbox.firebaseio.com",
+    projectId: "pet-pillbox",
+    storageBucket: "pet-pillbox.appspot.com",
+    messagingSenderId: "1096759389317"
+};
+
+firebase.initializeApp(config);
+
+var database = firebase.database();
+var dbRef = database.ref();
+
+// 2. Button for adding User ID
+$("#sign-in-btn").on("click", function (event) {
+    event.preventDefault();
+
+    // Grabs user input
+    var userId = $("#user-id-input").val().trim();
+    var email = $("#email-input").val().trim();
+
+    dbRef.once("value", function (snapshot) {
+        if (snapshot.hasChild(userId)) {
+            //var $resultsdiv = $('<div>+resultsTitle+</div>');
+            //$("body").append($resultsdiv);
+            alert("User " + userId + " already existed!");
+            // window.location = "..\karen_index.html";
+        }
+        else {
+            // New user
+                newUser.userId = userId;
+                newUser.email = email;
+                newUser.petList = "this is a pet";
+
+            // Save user data to the database
+            // debugger; 
+            database.ref().push(newUser);
+
+            // Logs everything to console
+            //console.log(newUser.id);
+            //console.log(newUser.email);
+            
+            // Alert
+            alert("User " + userId + " successfully added");
+
+            // Clears all of the text-boxes
+            //$("#user-id-input").val("");
+            //$("#email-input").val("");
+
+            // window.location = "karen_index.html";
+            $("#login").hide();
+            $("#everything").show();
+        }
+    });
+});
+
+// 3. Create Firebase event for adding train to the database and a row in the html when a user adds an entry
+database.ref().on("child_added", function (childSnapshot, prevChildKey) {
+
+    //console.log(childSnapshot.val());
+
+    // Store everything into a variable.
+    var userId = childSnapshot.val().id;
+    var email = childSnapshot.val().email;
+
+
+    
+    $("#user-table > tbody").append("<tr><td>" + userId + "</td><td>" + email + "</td></tr>");
+});
+
+// bc   
 
     $(".js-search").on("click", function() {
             //Prevent the default function of button
@@ -8,7 +113,10 @@ $(document).ready(function(){
             
             //Console log that the putton was pushed
             console.log("The button was pushed!");
-            
+
+            //Clear out the div
+            $(".drugs-appear-here").empty();
+
             //Create a variable called searchTerm to hold the value that the user entered into the search box
             var searchTerm = $('.js-search-term').val().trim();
             
@@ -37,22 +145,35 @@ $(document).ready(function(){
     
                 // Creating and storing a div tag
                 var drugDiv = $("<div>");
-      
-                // Creating a paragraph tag with the result item's rating
-                var p = $("<p>").text(results[i].title);
-                
+                drugDiv.attr("data-id", i);
+
+                //Create variable to hold drug title
+                var drugTitle = results[i].title;
+
+                //Create variable to hold set id
+                var setID = results[i].setid;
+
                 //Creating an add button next to each drug name
-                var b = $("<button class= 'add'>").text("+");
-                p.prepend(b);
-    
-    
+                // var addButton = $("<button class= 'add btn'>").text("+");
+                var addButton = $("<button class='add btn'>").text("+").attr("id", i);
+                // p.prepend(b);
+
+                // Creating a paragraph tag with the drug name
+                // var p = $("<p>").text(results[i].title);
+                var title = $("<p>").text(drugTitle);
+
+                //Creating a pargraph tag with the setID
+                var titleID  = $("<p>").text(setID).attr("id",i).hide();
+                
+      
                // Appending the paragraph to the drugDiv
-                drugDiv.append(p);
+               
+                drugDiv.empty().append(addButton, title, titleID);
                 // drugDiv.prepend(b);
                 
-              // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
+              // Prepending the animalDiv to the HTML page in the "#gifs-appear-here" div
               $(".drugs-appear-here").prepend(drugDiv);
-    
+                    
             };
         });  
     
@@ -67,31 +188,40 @@ $(document).ready(function(){
             
              //Create a variable called searchTerm to hold the value that the user entered into the search box
 
-             var addedDrugTerm = $(this).parent().get(0).innerText.slice(1);
-
+            //  var addedDrugTerm = $(this).parent().get(0).innerText.slice(1);
+              var clickedID = $(this).attr('id');
+              var addedDrugTerm = $("div").find('[data-id='+ clickedID + ']');
+              
              //Console log the addedDrugTerm  
              console.log("This is the added drug term: " + addedDrugTerm);
     
+            //  $("<button>").addClass("delete");
+            //  console.log($("<button>"));
+
              // Creating and storing a div tag
-             var usersDrugDiv = $("<div>");
+             var usersDrugDiv = $("<div>").addClass("usersDrugDiv");
       
             //  Creating a paragraph tag with the item the user wants to add to their list
-             var p = $("<p>").text(addedDrugTerm);
-             console.log(p);
+            //  var p = $("<p>").text(addedDrugTerm);
+            //  console.log(p);
              
             //  Creating a delete button next to each drug name
-             var bb = $("<button class='delete'>").text("-");
+            //  var bb = $("<button class='delete btn'>").text("-");
              
-             p.prepend(bb);
+            //  p.prepend(bb);
     
     
             // Appending the paragraph to the drugDiv
             // usersDrugDiv.prepend(bb);
-            usersDrugDiv.append(p);
+            // usersDrugDiv.append(p);
+            // usersDrugDiv.append(bb, addedDrugTerm)
+            usersDrugDiv.append(addedDrugTerm)
+            
              
            // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
            $(".user-drugs-appear-here").prepend(usersDrugDiv);
-    
+            
+          
         });
         
     
@@ -101,19 +231,148 @@ $(document).ready(function(){
         // }
     
     
-    });   
+    }); 
+    
+    $('document').on('click','.delete', function(event) {
+   
+        //Prevent the default function of button
+        event.preventDefault(); 
+
+       
+        //Console log that the button was pushed
+        console.log("The delete button was pushed!");
+
+        // console.log(this);
+        // var removeDrugTerm = $(this).parent().get(0).html();
+        
+        });
+    
+
+        // Initialize Firebase
+        // var config = {
+        //     apiKey: "AIzaSyDMAKT2l9OJ3XqZWcVH13y4u-A6Vk2931E",
+        //     authDomain: "pet-pillbox.firebaseapp.com",
+        //     databaseURL: "https://pet-pillbox.firebaseio.com",
+        //     projectId: "pet-pillbox",
+        //     storageBucket: "pet-pillbox.appspot.com",
+        //     messagingSenderId: "1096759389317"
+        // };
+        // firebase.initializeApp(config);
+
+       
+
+
     $(".js-savelist").on("click", function() {
         //Prevent the default function of button
         event.preventDefault(); 
-                    
+
+         database.ref().push(newUser);
+        // database.ref().set({
+        //     name:""
+        // })
+
+        // var rootRef = database().ref();
+        // var storesRef = rootRef.child('karen/petList);
+        // var newStoreRef = storesRef.push();
+        // newStoreRef.set({
+        //     name: "Cars",
+        //     "pageId": "23",
+        //     "storeURL": "/app/cars/gallery"
+        // });
+        
         //Console log that the putton was pushed
         console.log("The save button was pushed!");
-        //modal trigger 
         
-        });
-    });   
+        // Create a variable to reference the database.
+        // var database = firebase.database();
+       
+         //Clear out firebase
+        // database.ref().remove();
+        
+
+        //save everything into variables for firebase
+        // $(".usersDrugDiv").each(function(){
+        
+        // var drugTitle = $(this).find('p:first').text();
+        // console.log(drugTitle);
+        // var setID = $(this).find("p:nth-of-type(2)").text();
+        // console.log(setID);
+        //  var drugInfo = {
+        //      drugTitle: drugTitle,
+        //      setID: setID,
+        //  } ;
+        //  console.log (drugInfo);
+        // return drugInfo;
+        
+        
+        
+        // });
+        var userList=[];
+
+        $(".usersDrugDiv").each(function(){
+        
+            var drugTitle = $(this).find('p:first').text();
+            console.log(drugTitle);
+            var setID = $(this).find("p:nth-of-type(2)").text();
+            console.log(setID);
+             var drugInfo = {
+                 drugTitle: drugTitle,
+                 setID: setID,
+             } ;
+             console.log (drugInfo);
+            // return drugInfo;
+            userList.push(drugInfo);
+            console.log("This is my userList" + userList);
+            
+            
+            });
     
+            // database.ref().push({ userList
+
+            // });
+
+            $(".user-drugs-appear-here").empty();
+            // database.ref().child("new").push(userList);
+
+            
+            // .setValue(true)
+        // function createArray(drugInfo) {
+        //     var userList=[];
+        //     userList.push(drugInfo);
+        //     console.log("This is the user list " + userList);
+        // };
+
+        // createArray(); 
+
+        // $(".users-drugs-appear-here").each(function(drugInfo){
+        //     var userList=[];
+        //     userList.push(drugInfo);
+        //     console.log("This is the user list " + userList);
+
+        // });
         
+        // $(".users-drugs-appear-here").each(function(drugInfo){
+            
+        //     var userList=[];
+        //     userList.push(drugInfo);
+        //     ref.child("currentUser").push(userList);
+        // }); 
+
+    });   
+});    
         
-        
+    // var dataArray = new Array();
+    // $('.popupDiv').each(function(){
+    //   var dataLayer = $(this).data('layer');
+    //   //check if data-layer already processed
+    //   if(!dataArray.indexOf(dataLayer))
+    //   {
+    //      //update data array
+    //      dataArray.push(dataLayer);
+    //      $('.popupDiv[data-layer="'+ dataLayer +'"]').each(function(){
+    //         //do your stuff here
+    //      });
+    //   }
+    // });  
+        //https://stackoverflow.com/questions/26271933/jquery-how-to-loop-through-elements-with-data-attribute
         
