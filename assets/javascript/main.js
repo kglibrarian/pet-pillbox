@@ -1,6 +1,111 @@
 
 $(document).ready(function(){
+    $("#everything").hide();
+
+    var newUser = {
+        "userId": {
+          "email": {},
+          "petList":{}
+            
+        }
+    }
+
     
+/* global firebase moment */
+// Steps to complete:
+
+// 1. Initialize Firebase
+// 2. Create button for adding new employees - then update the html + update the database
+// 3. Create a way to retrieve employees from the employee database.
+// 4. Create a way to calculate the months worked. Using difference between start and current time.
+//    Then use moment.js formatting to set difference in months.
+// 5. Calculate Total billed
+
+// 1. Initialize Firebase
+
+// // Initialize Firebase
+// var config = {
+//     apiKey: "AIzaSyB7wYo9L1PAQIGpWj7f_3Z9sGX6ZF2eKSc",
+//     authDomain: "my-pet-pill-project.firebaseapp.com",
+//     databaseURL: "https://my-pet-pill-project.firebaseio.com",
+//     projectId: "my-pet-pill-project",
+//     storageBucket: "my-pet-pill-project.appspot.com",
+//     messagingSenderId: "808424558935"
+// };
+
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyDMAKT2l9OJ3XqZWcVH13y4u-A6Vk2931E",
+    authDomain: "pet-pillbox.firebaseapp.com",
+    databaseURL: "https://pet-pillbox.firebaseio.com",
+    projectId: "pet-pillbox",
+    storageBucket: "pet-pillbox.appspot.com",
+    messagingSenderId: "1096759389317"
+};
+
+firebase.initializeApp(config);
+
+var database = firebase.database();
+var dbRef = database.ref();
+
+// 2. Button for adding User ID
+$("#sign-in-btn").on("click", function (event) {
+    event.preventDefault();
+
+    // Grabs user input
+    var userId = $("#user-id-input").val().trim();
+    var email = $("#email-input").val().trim();
+
+    dbRef.once("value", function (snapshot) {
+        if (snapshot.hasChild(userId)) {
+            //var $resultsdiv = $('<div>+resultsTitle+</div>');
+            //$("body").append($resultsdiv);
+            alert("User " + userId + " already existed!");
+            // window.location = "..\karen_index.html";
+        }
+        else {
+            // New user
+                newUser.userId = userId;
+                newUser.email = email;
+                newUser.petList = "this is a pet";
+
+            // Save user data to the database
+            // debugger; 
+            database.ref().push(newUser);
+
+            // Logs everything to console
+            //console.log(newUser.id);
+            //console.log(newUser.email);
+            
+            // Alert
+            alert("User " + userId + " successfully added");
+
+            // Clears all of the text-boxes
+            //$("#user-id-input").val("");
+            //$("#email-input").val("");
+
+            // window.location = "karen_index.html";
+            $("#login").hide();
+            $("#everything").show();
+        }
+    });
+});
+
+// 3. Create Firebase event for adding train to the database and a row in the html when a user adds an entry
+database.ref().on("child_added", function (childSnapshot, prevChildKey) {
+
+    //console.log(childSnapshot.val());
+
+    // Store everything into a variable.
+    var userId = childSnapshot.val().id;
+    var email = childSnapshot.val().email;
+
+
+    
+    $("#user-table > tbody").append("<tr><td>" + userId + "</td><td>" + email + "</td></tr>");
+});
+
+// bc   
 
     $(".js-search").on("click", function() {
             //Prevent the default function of button
@@ -144,15 +249,15 @@ $(document).ready(function(){
     
 
         // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyDMAKT2l9OJ3XqZWcVH13y4u-A6Vk2931E",
-            authDomain: "pet-pillbox.firebaseapp.com",
-            databaseURL: "https://pet-pillbox.firebaseio.com",
-            projectId: "pet-pillbox",
-            storageBucket: "pet-pillbox.appspot.com",
-            messagingSenderId: "1096759389317"
-        };
-        firebase.initializeApp(config);
+        // var config = {
+        //     apiKey: "AIzaSyDMAKT2l9OJ3XqZWcVH13y4u-A6Vk2931E",
+        //     authDomain: "pet-pillbox.firebaseapp.com",
+        //     databaseURL: "https://pet-pillbox.firebaseio.com",
+        //     projectId: "pet-pillbox",
+        //     storageBucket: "pet-pillbox.appspot.com",
+        //     messagingSenderId: "1096759389317"
+        // };
+        // firebase.initializeApp(config);
 
        
 
@@ -160,12 +265,26 @@ $(document).ready(function(){
     $(".js-savelist").on("click", function() {
         //Prevent the default function of button
         event.preventDefault(); 
-                    
+
+         database.ref().push(newUser);
+        // database.ref().set({
+        //     name:""
+        // })
+
+        // var rootRef = database().ref();
+        // var storesRef = rootRef.child('karen/petList);
+        // var newStoreRef = storesRef.push();
+        // newStoreRef.set({
+        //     name: "Cars",
+        //     "pageId": "23",
+        //     "storeURL": "/app/cars/gallery"
+        // });
+        
         //Console log that the putton was pushed
         console.log("The save button was pushed!");
         
         // Create a variable to reference the database.
-        var database = firebase.database();
+        // var database = firebase.database();
        
          //Clear out firebase
         // database.ref().remove();
@@ -208,12 +327,15 @@ $(document).ready(function(){
             
             });
     
-            database.ref().push({ userList
+            // database.ref().push({ userList
 
-            });
+            // });
 
             $(".user-drugs-appear-here").empty();
+            // database.ref().child("new").push(userList);
 
+            
+            // .setValue(true)
         // function createArray(drugInfo) {
         //     var userList=[];
         //     userList.push(drugInfo);
