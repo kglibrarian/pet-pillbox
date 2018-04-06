@@ -59,3 +59,11 @@ input[type="button"], input[type="search"]{
     text-align: center;
 }
 
+.drug-title{
+    float: left;
+ 
+}
+
+.add{
+    float:left;
+}
