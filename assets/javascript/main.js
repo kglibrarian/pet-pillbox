@@ -2,54 +2,25 @@
 $(document).ready(function(){
     $("#everything").hide();
 
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDMAKT2l9OJ3XqZWcVH13y4u-A6Vk2931E",
+        authDomain: "pet-pillbox.firebaseapp.com",
+        databaseURL: "https://pet-pillbox.firebaseio.com",
+        projectId: "pet-pillbox",
+        storageBucket: "pet-pillbox.appspot.com",
+        messagingSenderId: "1096759389317"
+    };
 
-    var newUser = {
-        "userId": {
-          "email": {},
-          "petList":{}
+    firebase.initializeApp(config);
 
-        }
-    }
+    var database = firebase.database();
+    var dbRef = database.ref();
 
+    //Clear out firebase
+    // database.ref().remove();
 
-/* global firebase moment */
-// Steps to complete:
-
-// 1. Initialize Firebase
-// 2. Create button for adding new employees - then update the html + update the database
-// 3. Create a way to retrieve employees from the employee database.
-// 4. Create a way to calculate the months worked. Using difference between start and current time.
-//    Then use moment.js formatting to set difference in months.
-// 5. Calculate Total billed
-
-// Initialize Firebase
-var config = {
-    apiKey: "AIzaSyDMAKT2l9OJ3XqZWcVH13y4u-A6Vk2931E",
-    authDomain: "pet-pillbox.firebaseapp.com",
-    databaseURL: "https://pet-pillbox.firebaseio.com",
-    projectId: "pet-pillbox",
-    storageBucket: "pet-pillbox.appspot.com",
-    messagingSenderId: "1096759389317"
-};
-
-firebase.initializeApp(config);
-
-var database = firebase.database();
-var dbRef = database.ref();
-
-        //Clear out firebase
-        // database.ref().remove();
-
-
-       
-
-
-
-
-
-
-
-
+    //THIS CODE IS FOR SIGNING IN A USER (NEW OR PREVIOUS)--------------------------------
     /**
      * Handles the sign in button press.
      */
@@ -186,7 +157,7 @@ var dbRef = database.ref();
               document.getElementById('quickstart-verify-email').disabled = false;
 
 
-            //    Hides and shows appropriate divs
+            //   WE ADDED THIS CODE TO HIDE AND SHOW DIVS ON PET PILLBOX
             $("#login").hide();
             $("#everything").show();
             }
@@ -213,104 +184,7 @@ var dbRef = database.ref();
         initApp();
       };
 
-    //   function writeUserData(userId, name, email, imageUrl) {
-    //     firebase.database().ref('users/' + userId).set({
-    //         displayName: user.displayName,
-    //         email: user.email,
-    //         uid :user.uid,
-    //     });
-    //   };
-
-    //   writeUserData();
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // // 2. Button for adding User ID
-    // $("#sign-in-btn").on("click", function (event) {
-    //     event.preventDefault();
-
-             
-    //     // Grabs user input
-    //     var userId = $("#user-id-input").val().trim();
-    //     var email = $("#email-input").val().trim();
-
-    //     //Display username and email on page
-    //     $(".user-id").text(userId);
-    //     $(".user-email").text(email);
-
-    //     dbRef.once("value", function (snapshot) {
-    //         if (snapshot.hasChild(userId)) {
-    //         //var $resultsdiv = $('<div>+resultsTitle+</div>');
-    //         //$("body").append($resultsdiv);
-    //         alert("User " + userId + " already existed!");
-    //         // window.location = "..\karen_index.html";
-    //         }
-    //         else {
-    //         // New user
-    //             newUser.userId = userId;
-    //             newUser.email = email;
-    //             newUser.petList = "this is a pet";
-
-    //         // Save user data to the database
-    //         // debugger;
-    //         database.ref().push(newUser);
-
-    //         // Logs everything to console
-    //         //console.log(newUser.id);
-    //         //console.log(newUser.email);
-
-    //         // Alert
-    //         alert("User " + userId + " successfully added");
-
-    //         // Clears all of the text-boxes
-    //         $("#user-id-input").val("");
-    //         $("#email-input").val("");
-    //         };
-
-        
-
-    //         //Hides and shows appropriate divs
-    //         $("#login").hide();
-    //         $("#everything").show();
-    //     });
-    // });
-
-    // 3. Create Firebase event for adding train to the database and a row in the html when a user adds an entry
-    // database.ref().on("child_added", function (childSnapshot, prevChildKey) {
-
-    // //console.log(childSnapshot.val());
-
-    // // Store everything into a variable.
-    // var userId = childSnapshot.val().id;
-    // var email = childSnapshot.val().email;
-
-    
-
-    //Do we need this code?
-    // $("#user-table > tbody").append("<tr><td>" + userId + "</td><td>" + email + "</td></tr>");
-    // });
-
-// bc
+    //THIS CODE IS FOR THE SEARCH BUTTON AND AJAX CALL-------------------------------------
 
     $(".js-search").on("click", function(event) {
             //Prevent the default function of button
@@ -381,6 +255,7 @@ var dbRef = database.ref();
             };
         });
 
+        //THIS CODE IS FOR THE ADD BUTTON --------------------------------------------
         $(document).on('click', '.add', function() {
 
              //Prevent the default function of button
@@ -429,13 +304,10 @@ var dbRef = database.ref();
         });
 
 
-
-        // function emptyDrugDiv() {
-        //     $(".drugs-appear-here").empty();
-        // }
-
-
     });
+
+    //THIS CODE IS FOR THE DELETE BUTTON ---------------------------------------
+    //IT DOESN'T WORK YET
 
     // $('document').on('click','.delete', function(event) {
 
@@ -458,12 +330,15 @@ var dbRef = database.ref();
     });
 
     
-
+//THIS CODE IS FOR THE SAVE BUTTON -----------------------------------------------
 
     $(".js-savelist").on("click", function(event) {
         //Prevent the default function of button
         event.preventDefault();
         
+        //Console log that the putton was pushed
+        console.log("The save button was pushed!");
+
         //Prevent saving if list is not named
         // if ( $(".list-name").val().length < 0 ) {
         //     $( "span" ).text( "Enter List Name" ).show().fadeOut( 1000 );
@@ -472,21 +347,10 @@ var dbRef = database.ref();
 
         //  database.ref().push(newUser);
 
-        
-
-
-
-
-
-
-
-
-
-
-
+    
         //Create empty array called userDrugList
         var userDrugList=[];
-        var petDrugList;
+        // var petDrugList;
 
     $(".usersDrugDiv").each(function(){
 
@@ -506,118 +370,23 @@ var dbRef = database.ref();
 
          //Get the current userID
          var userId = firebase.auth().currentUser.uid;
-        //  console.log("This is the current userId: " + userId);
+         console.log("This is the current userId: " + userId);
          
-        //  function writeUserData(list) {
-        //      firebase.database().ref('users/' + userId).set({
-        //        petDrugList: petDrugList,
-             
-        //      });
-        //    }
+        //Capture the name the user entered for their list
+        listName = $(".list-name").val();
 
-        //    writeUserData(userDrugList);
-
-        //    dbRef.child('users').child(userId).set({ "first_name": "rob", "age": 28 })
-        listName = $(".list-name").val()
+        //Save the list into Firebase under the current userID
         dbRef.child(userId).child(listName).set({ userDrugList })
-        //This works...
+        
+        //Saving this code because it works....but we don't need it now...
         // dbRef.child('users').child(userId).set({ userDrugList })
-        // Get user's id from HTML 
-        // let myUser = $(".user-id").text();
-        // console.log("This is the current user's id: "+ myuser);
-
-        // //Save userDrugList array into firebase
-        // let currentUser = database.ref().orderByChild('id').equalTo(myUser);
-        // currentUser.once("child_added", function(snapshot) {
-        // snapshot.ref.child('petList').push(userDrugList);
-
-
-       
-        //Console log that the putton was pushed
-        console.log("The save button was pushed!");
-
-        // Create a variable to reference the database.
-        // var database = firebase.database();
-
-         //Clear out firebase
-        // database.ref().remove();
-
-
-        // save everything into variables for firebase
-    //     $(".usersDrugDiv").each(function(){
-
-    //     var drugTitle = $(this).find('p:first').text();
-    //     console.log(drugTitle);
-    //     var setID = $(this).find("p:nth-of-type(2)").text();
-    //     console.log(setID);
-    //      var drugInfo = {
-    //          drugTitle: drugTitle,
-    //          setID: setID,
-    //      } ;
-    //      console.log (drugInfo);
-    //     return drugInfo;
-    // });
-
-
-        // //Get the current userID
-        // var userId = firebase.auth().currentUser.uid;
-        // console.log("This is the current userId: " + userId);
-        // //Get the user data
-        // // return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
-        // //     //Do something with your user data located in snapshot
-
-        // //     // database.ref().push({ userDrugList
-
-        // //     // });
-        // // });
-
-        // // var ref: FIRDatabaseReference! = FIRDatabase.database().reference()
-        // // self.database.child("Users").child("UserID").child(self.uid!).setValue(["Name": userName, "Email": userEmail])
-
-        // function writeUserData(list) {
-        //     firebase.database().ref('users/' + userId).set({
-        //       petList: [],
-            
-        //     });
-        //   }
-
-        //   writeUserData();
-
-
-
-
-          
-
-            //    database.ref().push({ userDrugList
-
-            // });
+        
+        //Once the list is saved, clear out the Div
 
             $(".user-drugs-appear-here").empty();
-            // database.ref().child("new").push(userList);
+        
 
-
-            // .setValue(true)
-        // function createArray(drugInfo) {
-        //     var userList=[];
-        //     userList.push(drugInfo);
-        //     console.log("This is the user list " + userList);
-        // };
-
-        // createArray();
-
-        // $(".users-drugs-appear-here").each(function(drugInfo){
-        //     var userList=[];
-        //     userList.push(drugInfo);
-        //     console.log("This is the user list " + userList);
-
-        // });
-
-        // $(".users-drugs-appear-here").each(function(drugInfo){
-
-        //     var userList=[];
-        //     userList.push(drugInfo);
-        //     ref.child("currentUser").push(userList);
-        // });
+    //THIS CODE IS FOR THE EMAIL BUTTON ------------------------------------------
 
     $(".js-email").on("click", function() {
         //Prevent the default function of button
@@ -630,18 +399,4 @@ var dbRef = database.ref();
 });
 
 });
-    // var dataArray = new Array();
-    // $('.popupDiv').each(function(){
-    //   var dataLayer = $(this).data('layer');
-    //   //check if data-layer already processed
-    //   if(!dataArray.indexOf(dataLayer))
-    //   {
-    //      //update data array
-    //      dataArray.push(dataLayer);
-    //      $('.popupDiv[data-layer="'+ dataLayer +'"]').each(function(){
-    //         //do your stuff here
-    //      });
-    //   }
-    // });
-        //https://stackoverflow.com/questions/26271933/jquery-how-to-loop-through-elements-with-data-attribute
-
+    
