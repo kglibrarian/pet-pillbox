@@ -78,9 +78,38 @@ $(document).ready(function(){
                                     for (var key in childChildChildData){
                                         drugs.append('<p class="drug-title">' + childChildChildData[key].drugTitle + '</p>');
                                         wrapper.append(drugs);
+
+                                       
                                         var setID = childChildChildData[key].setID
                                         console.log(setID);
+                                        // debugger;
+                                        
+                                        var queryURL = "https://dailymed.nlm.nih.gov/dailymed/services/v2/spls/" + setID + "/media.json";
+                                        console.log(queryURL);
+                                        // var queryURL = "https://dailymed.nlm.nih.gov/dailymed/services/v2/spls/1efe378e-fee1-4ae9-8ea5-0fe2265fe2d8/media.json"
+                                            // Performing an AJAX request with the queryURL
+                                            $.ajax({
+                                                url: queryURL,
+                                                method: "GET"
+                                            })
+                                                // After data comes back from the request
+                                                .then(function(response) {
+                                                console.log(queryURL);
+                                                console.log(response);
 
+                                                // storing the data from the AJAX request in the results variable
+                                                // console.log(response.data.title);
+                                                // var results = response.data;
+
+                                                // Looping through each result item
+                                                // for (var i = 0; i < results.length; i++) {  
+                                                // };
+                                            });
+
+
+
+
+                                        
                                         //Create div to hold and display the user's drug lists which have been saved in firebase
                                         var usersListDiv = $("<div>"); 
 
