@@ -159,7 +159,7 @@ $(document).ready(function(){
 
 
             //   WE ADDED THIS CODE TO HIDE AND SHOW DIVS ON PET PILLBOX
-            //$("#login").hide();
+            $("#login").hide();
             $("#everything").show();
             }
             // [END_EXCLUDE]
@@ -226,6 +226,7 @@ $(document).ready(function(){
                 // Creating and storing a div tag
                 var drugDiv = $("<div>");
                 drugDiv.attr("data-id", i);
+                drugDiv.addClass("drugs")
 
                 //Create variable to hold drug title
                 var drugTitle = results[i].title;
@@ -271,7 +272,7 @@ $(document).ready(function(){
 
             var addedDrugTerm = $(this).parent();
             addedDrugTerm.detach().prependTo(".user-drugs-appear-here");
-            $(this).removeClass('add').addClass('delete');
+            $(this).removeClass('add').addClass('delete').text("-");
             addedDrugTerm.removeClass('drugDiv').addClass('usersDrugDiv');
 
             // var clickedID = $(this).attr('id');
@@ -305,9 +306,15 @@ $(document).ready(function(){
 
            // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
           //  $(".user-drugs-appear-here").prepend(usersDrugDiv);
-
+          $(document).on('click', '.delete', function() {
+            event.preventDefault();
+            console.log("the delete button was pushed!");
+            $(this).parent().empty();
+    
+        });
 
         });
+      
 
 
     });
@@ -328,12 +335,11 @@ $(document).ready(function(){
 
     // });
 
-    $(document).on('click', '.delete', function() {
-        event.preventDefault();
-        console.log("the delete button was pushed!");
-        $(this).parent().empty();
+    //$(document).on('click', '.delete', function() {
+        //console.log("the delete button was pushed!");
+       // $(this).parent().empty();
 
-    });
+   // });
 
     
 //THIS CODE IS FOR THE SAVE BUTTON -----------------------------------------------
