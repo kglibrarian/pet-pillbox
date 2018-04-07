@@ -159,7 +159,7 @@ $(document).ready(function(){
 
 
             //   WE ADDED THIS CODE TO HIDE AND SHOW DIVS ON PET PILLBOX
-            $("#login").hide();
+            //$("#login").hide();
             $("#everything").show();
             }
             // [END_EXCLUDE]

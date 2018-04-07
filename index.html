@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Pet PillBox</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Pompiere" rel="stylesheet">    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two" rel="stylesheet">
+    
     
 
     <!-- Moment.js Reference -->
@@ -50,16 +50,16 @@
                       
                                 <input class="mdl-textfield__input" style="display:inline;width:auto;" type="text" id="email" name="email" placeholder="Email"/>
                                 &nbsp;&nbsp;&nbsp;
-                                <input class="mdl-textfield__input" style="display:inline;width:auto;" type="password" id="password" name="password" placeholder="Password"/>
+                                <input class="mdl-textfield__input" style="display:inline;width:auto;" type="text" id="password" name="password" placeholder="Password"/>
                                 <br/><br/>
-                                <button disabled class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-in" name="signin">Sign In</button>
+                                <button disabled class="mdl-button mdl-js-button mdl-button--raised raised" type="sign-in" id="quickstart-sign-in" name="signin">Sign In</button>
                                 &nbsp;&nbsp;&nbsp;
-                                <button class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-up" name="signup">Sign Up</button>
+                                <button class="mdl-button mdl-js-button mdl-button--raised raised" type="sign-up" id="quickstart-sign-up" name="signup">Sign Up</button>
                                 &nbsp;&nbsp;&nbsp;
-                                <button class="mdl-button mdl-js-button mdl-button--raised" disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</button>
+                                <button class="mdl-button mdl-js-button mdl-button--raised raised" type="verify-email" disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</button>
                                 &nbsp;&nbsp;&nbsp;
-                                <button class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-password-reset" name="verify-email">Send Password Reset Email</button>
-                      
+                                <button class="mdl-button mdl-js-button mdl-button--raised raised" type="verify-email" id="quickstart-password-reset" name="verify-email">Send Password Reset Email</button>
+                            
                                 <!-- Container where we'll display the user details -->
                                 <div class="quickstart-user-details-container">
                                   Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
@@ -112,7 +112,7 @@
                 <br>
                 <form class="form-inline">
                         <input class="form-control mr-sm-2 js-search-term" type="search" placeholder="Search medication name" aria-label="Search" style="width: 20rem;">
-                        <button class="btn btn-outline-primary my-2 my-sm-0 js-search" type="submit">Search</button>
+                        <button class="btn btn-outline-primary my-2 my-sm-0 js-search" type="search" >Search</button>
                 </form>
                 <br>
                 <!-- search results populate in this div-->
