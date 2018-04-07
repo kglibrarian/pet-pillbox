@@ -212,12 +212,12 @@ $(document).ready(function(){
                 method: "GET"
             })
                 // After data comes back from the request
-                .then(function(response) {
+                .then(function(response) {               // console.log(response.data.title);nse) {
                 console.log(queryURL);
                 console.log(response);
 
                 // storing the data from the AJAX request in the results variable
-                console.log(response.data.title);
+ 
                 var results = response.data;
 
                 // Looping through each result item
@@ -243,11 +243,12 @@ $(document).ready(function(){
                 var title = $("<p class='drug-title'>").text(drugTitle);
 
                 //Creating a pargraph tag with the setID
-                var titleID  = $("<p>").text(setID).attr("id",i).hide();
-
+                // var titleID  = $("<p>").text(setID).attr("id",i).hide();
+                
 
                // First empty, and then append the paragraph to the drugDiv
-                drugDiv.empty().append(addButton, title, titleID);
+                drugDiv.empty().append(addButton, title);
+                drugDiv.attr('setID', setID);
                 // drugDiv.prepend(b);
 
               // Prepending the drugDiv to the HTML page in the "#drugs-appear-here" div
@@ -268,38 +269,42 @@ $(document).ready(function(){
 
              //Create a variable called searchTerm to hold the value that the user entered into the search box
 
-            //  var addedDrugTerm = $(this).parent().get(0).innerText.slice(1);
-            var clickedID = $(this).attr('id');
-            var addedDrugTerm = $("div").find('[data-id='+ clickedID + ']');
+            var addedDrugTerm = $(this).parent();
+            addedDrugTerm.detach().prependTo(".user-drugs-appear-here");
+            $(this).removeClass('add').addClass('delete');
+            addedDrugTerm.removeClass('drugDiv').addClass('usersDrugDiv');
 
-             //Console log the addedDrugTerm
-            console.log("This is the added drug term: " + addedDrugTerm);
+            // var clickedID = $(this).attr('id');
+            // var addedDrugTerm = $("div").find('[data-id='+ clickedID + ']');
 
-            //  $("<button>").addClass("delete");
-            //  console.log($("<button>"));
+            //  //Console log the addedDrugTerm
+            // console.log("This is the added drug term: " + addedDrugTerm);
 
-             // Creating and storing a div tag
-             var usersDrugDiv = $("<div>").addClass("usersDrugDiv");
+            // //  $("<button>").addClass("delete");
+            // //  console.log($("<button>"));
 
-            //  Creating a paragraph tag with the item the user wants to add to their list
-            //  var p = $("<p>").text(addedDrugTerm);
-            //  console.log(p);
+            //  // Creating and storing a div tag
+            //  var usersDrugDiv = $("<div>").addClass("usersDrugDiv");
 
-            //  Creating a delete button next to each drug name
-            //  var bb = $("<button class='delete btn'>").text("-");
+            // //  Creating a paragraph tag with the item the user wants to add to their list
+            // //  var p = $("<p>").text(addedDrugTerm);
+            // //  console.log(p);
 
-            //  p.prepend(bb);
+            // //  Creating a delete button next to each drug name
+            // //  var bb = $("<button class='delete btn'>").text("-");
+
+            // //  p.prepend(bb);
 
 
-            // Appending the paragraph to the drugDiv
-            // usersDrugDiv.prepend(bb);
-            // usersDrugDiv.append(p);
-            // usersDrugDiv.append(bb, addedDrugTerm)
-            usersDrugDiv.append(addedDrugTerm)
+            // // Appending the paragraph to the drugDiv
+            // // usersDrugDiv.prepend(bb);
+            // // usersDrugDiv.append(p);
+            // // usersDrugDiv.append(bb, addedDrugTerm)
+            // usersDrugDiv.append(addedDrugTerm)
 
 
            // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
-           $(".user-drugs-appear-here").prepend(usersDrugDiv);
+          //  $(".user-drugs-appear-here").prepend(usersDrugDiv);
 
 
         });
@@ -357,7 +362,8 @@ $(document).ready(function(){
 
         var drugTitle = $(this).find('p:first').text();
         console.log(drugTitle);
-        var setID = $(this).find("p:nth-of-type(2)").text();
+        // var setID = $(this).find("p:nth-of-type(2)").text();
+        var setID = $(this).attr('setid');
         console.log(setID);
         var drugInfo = {
             drugTitle: drugTitle,

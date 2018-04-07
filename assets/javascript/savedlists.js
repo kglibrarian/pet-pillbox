@@ -81,28 +81,21 @@ $(document).ready(function(){
                                         var setID = childChildChildData[key].setID
                                         console.log(setID);
 
+                                        //Create div to hold and display the user's drug lists which have been saved in firebase
+                                        var usersListDiv = $("<div>"); 
 
+                                        //Create the buttons to display the drug information from ajax call to DailyMed
+                                        var drugInfoButton = $('<a class="btn btn-primary" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample">');
+
+                                        //Create an array of text for the drugInfoButtons
+                                        var drugButtonArray = ["Purpose", "Uses", "Directions", "Warnings", "Questions"];
+
+                                        //Create for loop to push href class and button text into each drugInfoButton
+                                        drugInfoButton.text("") 
+                                        // drugInfoButton.addClass("href", drugURL); 
                                        
-                                        var queryURL = " https://dailymed.nlm.nih.gov/dailymed/services/v2/spls/" + setID + "/history.json" ;
-
-                                            // Performing an AJAX request with the queryURL
-                                            $.ajax({
-                                                url: queryURL,
-                                                method: "GET"
-                                            })
-                                                // After data comes back from the request
-                                                .then(function(response) {
-                                                console.log(queryURL);
-                                                console.log(response);
-
-                                                // storing the data from the AJAX request in the results variable
-                                                // console.log(response.data.title);
-                                                // var results = response.data;
-
-                                                // Looping through each result item
-                                                // for (var i = 0; i < results.length; i++) {  
-                                                // };
-                                            });
+                                        
+                                           
                                 }         
                                        
                                        
