@@ -402,14 +402,14 @@ $(document).ready(function(){
 
     //THIS CODE IS FOR THE EMAIL BUTTON ------------------------------------------
 
-    $(".js-email").on("click", function() {
-        //Prevent the default function of button
-        event.preventDefault();
+    // $(".js-email").on("click", function() {
+    //     //Prevent the default function of button
+    //     event.preventDefault();
     
-        //Console log that the putton was pushed
-        console.log("The email button was pushed!");
-        //modal trigger
-    });
+    //     //Console log that the putton was pushed
+    //     console.log("The email button was pushed!");
+    //     //modal trigger
+    // });
 });
 
 // Get the current userID
