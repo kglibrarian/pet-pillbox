@@ -16,6 +16,7 @@ $(document).ready(function(){
 
     var database = firebase.database();
     var dbRef = database.ref();
+   
 
     //Clear out firebase
     // database.ref().remove();
@@ -376,7 +377,8 @@ $(document).ready(function(){
         listName = $(".list-name").val();
 
         //Save the list into Firebase under the current userID
-        dbRef.child(userId).child(listName).set({ userDrugList })
+        dbRef.child(userId).child('userlists').child(listName).set({ userDrugList })
+        // dbRef.child(userId).child(listName).set({ userDrugList })
         
         //Saving this code because it works....but we don't need it now...
         // dbRef.child('users').child(userId).set({ userDrugList })
@@ -397,6 +399,24 @@ $(document).ready(function(){
         //modal trigger
     });
 });
+
+// Get the current userID
+// var userId = firebase.auth().currentUser.uid;
+// console.log("This is the current userId: " + userId);
+
+   
+
+  // var ref = new Firebase("https://pet-pillbox.firebaseio.com");
+      // var authData = dbRef.getAuth();
+      
+      // if (authData) {
+      //   console.log("Authenticated user with uid:", authData.uid);
+      // }
+
+
+
+
+
 
 });
     
