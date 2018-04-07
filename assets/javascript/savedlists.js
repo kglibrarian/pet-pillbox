@@ -79,8 +79,31 @@ $(document).ready(function(){
                                         drugs.append('<p class="drug-title">' + childChildChildData[key].drugTitle + '</p>');
                                         wrapper.append(drugs);
                                         var setID = childChildChildData[key].setID
+                                        console.log(setID);
 
-                                }        
+
+                                       
+                                        var queryURL = " https://dailymed.nlm.nih.gov/dailymed/services/v2/spls/" + setID + "/history.json" ;
+
+                                            // Performing an AJAX request with the queryURL
+                                            $.ajax({
+                                                url: queryURL,
+                                                method: "GET"
+                                            })
+                                                // After data comes back from the request
+                                                .then(function(response) {
+                                                console.log(queryURL);
+                                                console.log(response);
+
+                                                // storing the data from the AJAX request in the results variable
+                                                // console.log(response.data.title);
+                                                // var results = response.data;
+
+                                                // Looping through each result item
+                                                // for (var i = 0; i < results.length; i++) {  
+                                                // };
+                                            });
+                                }         
                                        
                                        
     
@@ -95,6 +118,55 @@ $(document).ready(function(){
        
       
 }); 
+
+
+
+//THIS CODE IS FOR AJAX FDA DRUG INFORMATION BUT PROBLEM WITH CORS
+                                            // var queryURL = " https://api.fda.gov/drug/label.json?search=openfda.spl_set_id:" + setID + "+AND+ purpose" ;
+
+                                            // // Performing an AJAX request with the queryURL
+                                            // $.ajax({
+                                            //     url: queryURL,
+                                            //     method: "GET"
+                                            // })
+                                            //     // After data comes back from the request
+                                            //     .then(function(response) {
+                                            //     console.log(queryURL);
+                                            //     console.log(response);
+
+                                            //     // storing the data from the AJAX request in the results variable
+                                            //     // console.log(response.data.title);
+                                            //     // var results = response.data;
+
+                                            //     // Looping through each result item
+                                            //     // for (var i = 0; i < results.length; i++) {  
+                                            //     // };
+                                            // });
+//THIS CODE IS FOR DAILYMED MEDIA INFORMATION BUT PROBLEM WITH CORS
+                                            // var queryURL = " https://dailymed.nlm.nih.gov/dailymed/services/v2/spls/" + setID + "/media.json" ;
+
+                                            // // Performing an AJAX request with the queryURL
+                                            // $.ajax({
+                                            //     url: queryURL,
+                                            //     method: "GET"
+                                            // })
+                                            //     // After data comes back from the request
+                                            //     .then(function(response) {
+                                            //     console.log(queryURL);
+                                            //     console.log(response);
+
+                                            //     // storing the data from the AJAX request in the results variable
+                                            //     // console.log(response.data.title);
+                                            //     // var results = response.data;
+
+                                            //     // Looping through each result item
+                                            //     // for (var i = 0; i < results.length; i++) {  
+                                            //     // };
+                                            // });
+
+
+
+
 
 
 // $(document).on('click', '.one-list', function(event) {
