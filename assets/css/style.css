@@ -52,11 +52,13 @@
     width: 900px;
     padding-top:2px;
 }
+#emailMe{
+    color:black;
+}
 .js-email{
     border-color: #322A38;
     background-color:rgba(160, 161, 177, 0.685);
     color:black;
-    outline:none;
 }
 .js-email:hover{
     background-color: rgba(50, 42, 56, 0.363);
