@@ -2,6 +2,7 @@
     border-color: #322A38;
     border-width: thick;
     border-radius: 15px;
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 .add {
     margin: 7px;
@@ -55,6 +56,24 @@
 #emailMe{
     color:black;
 }
+.header{
+    font-family:'Open Sans Condensed', sans-serif;
+    font-size: 60px;
+    font-weight: bolder;
+    color: #322A38;
+}
+.header2{
+    font-family:'Open Sans Condensed', sans-serif;
+    font-size: 34px;
+    font-weight: bold;
+    color: rgba(50, 42, 56, 0.801);
+}
+.header3{
+    font-family:'Open Sans Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgba(50, 42, 56, 0.801);
+}
 .js-email{
     border-color: #322A38;
     background-color:rgba(160, 161, 177, 0.685);
@@ -81,9 +100,7 @@
 .js-search:hover{
     color: black;
     background-color: rgba(50, 42, 56, 0.363);
-
 }
-
 .jumbotron{
     background-image: url("../paws_image.jpg");
     background-size: 400px;
@@ -105,11 +122,15 @@ input[type="button"], input[type="search"]{
 
 input[type="text"], input[type="email"], input[type="password"]{
     border-color: black;
+    border-width:2px;
     color: black;
     text-align: center;
     display: inline-block;
-    font-size: 17px;
     border-radius: 5px;
+    font-size: 20px;
+    font-family:'Open Sans Condensed', sans-serif;
+
+
 }
 input[type="text"]:focus, input[type="button"]:focus, input[type="search"]:focus {
     box-shadow: 3px solid rgba(50, 42, 56, 0.363);
@@ -177,17 +198,20 @@ input[type="text"]:focus, input[type="button"]:focus, input[type="search"]:focus
 .raised {
     border-color: black;
     border-width: medium;
-    background-color: rgb(244, 249, 253);
+    background-color:#9398AE;
     color: black;
     text-align: center;
-    text-decoration: none;
     display: inline-block;
-    font-size: 17px;
+    font-size: 20px;
     border-radius: 5px;
+    font-family:'Open Sans Condensed', sans-serif;
 }
 .raised:hover{
-    background-color: rgba(50, 42, 56, 0.363);
+    background-color:rgba(147, 152, 174, 0.699);
     color: black;
+    font-family:'Open Sans Condensed', sans-serif;
+    font-size: 20px;
+
 }
 .saved-lists{
     padding: 15px;
