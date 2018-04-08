@@ -58,7 +58,7 @@ $(document).ready(function(){
                 
                 for(let i = 0; i < drugList.length; i++) {
                     let drug = drugList[i];
-                    let drugContainer = $('<div>');
+                    let drugContainer = $('<div>').addClass("labeltext");
                     let drugText = $('<p>').attr('setid', drug.setID).text(drug.drugTitle);
                     drugContainer.append(drugText);
                     
@@ -83,7 +83,7 @@ $(document).ready(function(){
                         
                         var resultURL = response.data.media[0].url;
                         let image = $('<img>').attr('src', resultURL).css('display', 'none');
-                        let button = $('<button>').text('Label');
+                        let button = $('<button>').addClass("label").text('Label');
                         button.on('click', function () {
                             $(this).next('img').toggle();
                         });
