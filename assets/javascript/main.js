@@ -159,7 +159,7 @@ $(document).ready(function(){
 
 
             //   WE ADDED THIS CODE TO HIDE AND SHOW DIVS ON PET PILLBOX
-           // $("#login").hide();
+            $("#login").hide();
             $("#everything").show();
             }
             // [END_EXCLUDE]
@@ -296,17 +296,14 @@ $(document).ready(function(){
 
             // //  p.prepend(bb);
 
-
             // // Appending the paragraph to the drugDiv
             // // usersDrugDiv.prepend(bb);
             // // usersDrugDiv.append(p);
             // // usersDrugDiv.append(bb, addedDrugTerm)
             // usersDrugDiv.append(addedDrugTerm)
 
-
            // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
           //  $(".user-drugs-appear-here").prepend(usersDrugDiv);
-
 
           //clicking the - button will remove drug from temp list and move it back to search results
           $(document).on('click', '.delete', function() {
@@ -349,7 +346,6 @@ $(document).ready(function(){
        // $(this).parent().empty();
 
    // });
-
     
 //THIS CODE IS FOR THE SAVE BUTTON -----------------------------------------------
 
@@ -367,7 +363,6 @@ $(document).ready(function(){
         // }
 
         //  database.ref().push(newUser);
-
     
         //Create empty array called userDrugList
         var userDrugList=[];

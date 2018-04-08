@@ -1,8 +1,10 @@
 .about{
     border-color: #322A38;
+    color:#30382a;
     border-width: thick;
     border-radius: 15px;
-    font-family: 'Open Sans Condensed', sans-serif;
+    font-family: 'Open Sans Condensed';
+    font-size: 25px;
 }
 .add {
     margin: 7px;
@@ -51,7 +53,8 @@
 .drug-title{
     float: left;
     width: 900px;
-    padding-top:2px;
+    font-family: "Imprima";
+    font-size: 20px;
 }
 #emailMe{
     color:black;
@@ -78,6 +81,9 @@
     border-color: #322A38;
     background-color:rgba(160, 161, 177, 0.685);
     color:black;
+    font-family:'Open Sans Condensed', sans-serif;
+    font-size: 20px;
+    font-weight:bold;
 }
 .js-email:hover{
     background-color: rgba(50, 42, 56, 0.363);
@@ -87,6 +93,9 @@
 .js-savelist{
     border-color: #322A38;
     background-color:rgba(160, 161, 177, 0.685);
+    font-family:'Open Sans Condensed', sans-serif;
+    font-size: 20px;
+    font-weight:bold;
 }
 .js-savelist:hover{
     background-color: rgba(50, 42, 56, 0.363);
@@ -96,6 +105,10 @@
     border-color: #322A38;
     background-color:rgba(160, 161, 177, 0.685);
     color:black;
+    font-family:'Open Sans Condensed', sans-serif;
+    font-size: 20px;
+    font-weight:bold;
+
 }
 .js-search:hover{
     color: black;
@@ -110,13 +123,13 @@
 }
 
 input[type="button"], input[type="search"]{
-    font-family: 'News Cycle', sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif;
     font-weight: bold;
     border-color: black;
     color: black;
     text-align: center;
     display: inline-block;
-    font-size: 17px;
+    font-size: 20px;
     border-radius: 5px;
 }
 
@@ -129,23 +142,23 @@ input[type="text"], input[type="email"], input[type="password"]{
     border-radius: 5px;
     font-size: 20px;
     font-family:'Open Sans Condensed', sans-serif;
-
-
+    font-weight:bold;
 }
+
 input[type="text"]:focus, input[type="button"]:focus, input[type="search"]:focus {
     box-shadow: 3px solid rgba(50, 42, 56, 0.363);
     background-color:  rgba(50, 42, 56, 0.363);
 }
 .label{
-    margin: 7px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:'Open Sans Condensed', sans-serif;
+    font-size: 20px;
+    font-weight:bolder;
     border-color: black;
     color: black;
     text-align: center;
     display: inline-block;
-    font-size: 18px;
     border-radius: 7px;
-    background-color:rgba(160, 161, 177, 0.685);
+    background-color:rgba(160, 161, 177, 0.486);
 }
 .label:hover{
     background-color:  rgba(50, 42, 56, 0.363);
@@ -153,13 +166,22 @@ input[type="text"]:focus, input[type="button"]:focus, input[type="search"]:focus
     color: black;
 }
 .labeltext{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: bolder;
+    font-family: "Imprima";
+    font-size: 20px;
     font-style: italic;
 }
 .list-name{
     border-color: #322A38;
     border-width: 3px;
+}
+.list-Title{
+    font-family:'Open Sans Condensed', sans-serif;
+    font-weight: bolder;
+    font-size:25px;
+    padding-top:15px;
+    text-decoration: underline;
+    color:#30382ad3;
+
 }
 .nav-pills>li.active{
     background-color: rgba(160, 161, 177, 0.61) !important;
@@ -192,8 +214,7 @@ input[type="text"]:focus, input[type="button"]:focus, input[type="search"]:focus
 
 .one-list {
     color: rgb(51, 51, 51);
-    text-decoration: underline;
-    line-height: 2em;
+   
 }
 .raised {
     border-color: black;
