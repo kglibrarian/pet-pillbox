@@ -53,7 +53,7 @@ $(document).ready(function(){
                 //   wrapper.append(container);
                 //   container.append('<div class="item">' + key +'</div>');
                 let drugList = childData[key].userDrugList;                        //   container.append('<div class="category">' + childData[key].userDrugLists +'</div>');
-                let listItems = $('<div class="one-list">' + key +'</div>');
+                let listItems = $('<div class="one-list"><p class="list-Title">' + key +'</p></div>');
                 //   wrapper.append('<div class="category">' + childData[key].userDrugLists +'</div>');
                 
                 for(let i = 0; i < drugList.length; i++) {
