@@ -1,3 +1,8 @@
+.about{
+    border-color: #322A38;
+    border-width: thick;
+    border-radius: 15px;
+}
 .add {
     margin: 7px;
     font-family: 'News Cycle', sans-serif;
@@ -9,32 +14,12 @@
     display: inline-block;
     font-size: 17px;
     border-radius: 10px;
+    float:left;
 }
-.drugs{
-    display: inline;
-    padding-top: 3px;
+.add:hover{
+    background-color:  rgba(50, 42, 56, 0.363);
+    color: black;
 }
-.jumbotron{
-    background-image: url("../paws_image.jpg");
-    background-size: 400px;
-    background-repeat: no-repeat;
-    background-color: white;
-    position:center;
-  
-
-}
-
-.temp-list{
-    padding: 15px;
-}
-
-.title{
-    text-align: center;
-    font-family: 'Pompiere', cursive;
-    font-size: 900px;
-}
-
-
 
 .delete{
     margin: 7px;
@@ -48,15 +33,59 @@
     border-radius: 10px;
     float:left;
 }
-
-.add:hover{
-    background-color: rgb(164, 210, 248);
+.delete:hover{
+    background-color:   rgba(50, 42, 56, 0.363);
     color: black;
 }
-
-.delete:hover{
-    background-color:  rgb(164, 210, 248);
+.display-4{
+    line-height:0.6;
+    margin:5px;
+    margin-left: 380px;
+    font-size: 150px;
+}
+.drugs{
+    display: inline;
+    padding-top: 3px;
+}
+.drug-title{
+    float: left;
+    width: 900px;
+    padding-top:2px;
+}
+.js-email{
+    border-color: #322A38;
+    background-color:rgba(160, 161, 177, 0.685);
+    color:black;
+    outline:none;
+}
+.js-email:hover{
+    background-color: rgba(50, 42, 56, 0.363);
     color: black;
+    border-color:black;
+}
+.js-savelist{
+    border-color: #322A38;
+    background-color:rgba(160, 161, 177, 0.685);
+}
+.js-savelist:hover{
+    background-color: rgba(50, 42, 56, 0.363);
+    color: black;
+}
+.js-search{
+    border-color: #322A38;
+    background-color:rgba(160, 161, 177, 0.685);
+    color:black;
+}
+.js-search:hover{
+    color: black;
+    border-color: black;
+}
+.jumbotron{
+    background-image: url("../paws_image.jpg");
+    background-size: 400px;
+    background-repeat: no-repeat;
+    background-color: #9398AE;
+    position:center;
 }
 
 input[type="button"], input[type="search"]{
@@ -69,6 +98,7 @@ input[type="button"], input[type="search"]{
     display: inline-block;
     font-size: 17px;
     border-radius: 5px;
+    outline:none;
 }
 
 input[type="text"], input[type="email"], input[type="password"]{
@@ -81,10 +111,60 @@ input[type="text"], input[type="email"], input[type="password"]{
     border-radius: 5px;
 }
 input[type="text"]:focus {
-    border: 3px solid rgb(199, 212, 231);
+    border: 3px solid rgba(50, 42, 56, 0.363);
     outline:none;
 }
-
+.label{
+    margin: 7px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-color: black;
+    color: black;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 7px;
+    background-color:rgba(160, 161, 177, 0.685);
+}
+.label:hover{
+    background-color:  rgba(50, 42, 56, 0.363);
+    outline:none;
+    color: black;
+}
+.labeltext{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bolder;
+    font-style: italic;
+}
+.list-name{
+    border-color: #322A38;
+    border-width: 3px;
+}
+.nav-pills>li.active{
+    background-color: rgba(160, 161, 177, 0.61) !important;
+    color: #322A38;
+    border-radius: 10px;
+}
+.nav-link{
+    color:white;
+    font-family:  'Pompiere', cursive;
+    font-size: 30px;
+    padding:1px;
+}
+.navbar {
+    align: center;
+}
+.navigation {
+    background-color: #322A38;
+}
+.nonactive{
+    background-color:#322A38;
+    color: white;
+}
+.one-list {
+    color: rgb(51, 51, 51);
+    text-decoration: underline;
+    line-height: 2em;
+}
 .raised {
     border-color: black;
     border-width: medium;
@@ -97,30 +177,34 @@ input[type="text"]:focus {
     border-radius: 5px;
 }
 .raised:hover{
-    background-color:  rgb(116, 190, 250);
+    background-color: rgba(50, 42, 56, 0.363);
     color: black;
-}
-
-.navbar {
-    text-align: center;
-}
-
-.drug-title{
-    float: left;
-    width: 900px;
-    padding-top:2px;
- 
-}
-
-.add{
-    float:left;
-}
-
-.one-list {
-    color: rgb(51, 51, 51);
-    text-decoration: underline;
-    line-height: 2em;
 }
 .saved-lists{
     padding: 15px;
+    border-color: #322A38;
+    border-width: thick;
+    border-radius: 15px;
+    
 }
+.temp-list{
+    padding: 15px;
+    border-color: #322A38;
+    border-width: thick;
+    border-radius: 15px;
+}
+.title{
+    text-align: center;
+    font-family: 'Pompiere', cursive;
+    font-size: 1200px;
+}
+
+
+
+
+
+
+
+
+
+
