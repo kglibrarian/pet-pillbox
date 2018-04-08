@@ -159,7 +159,7 @@ $(document).ready(function(){
 
 
             //   WE ADDED THIS CODE TO HIDE AND SHOW DIVS ON PET PILLBOX
-            $("#login").hide();
+           // $("#login").hide();
             $("#everything").show();
             }
             // [END_EXCLUDE]
@@ -306,19 +306,26 @@ $(document).ready(function(){
 
            // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
           //  $(".user-drugs-appear-here").prepend(usersDrugDiv);
+
+
+          //clicking the - button will remove drug from temp list and move it back to search results
           $(document).on('click', '.delete', function() {
+            //Prevent the default function of button
             event.preventDefault();
+            //logging to check if code is working
             console.log("the delete button was pushed!");
-            $(this).parent().empty();
-            
+            //creating a variable to hold the deleted drug
+            var deletedDrugTerm = $(this).parent();
+            //detaching the deleted drug and prepending it to class= drugs-appear-here
+            deletedDrugTerm.detach().prependTo(".drugs-appear-here");
+            //removing the deleted drugs class "delete" and adding class "add" with + text for the button
+            $(this).removeClass('delete').addClass('add').text("+");
+            //removing the usersDrugDiv class from deletedDrugDiv variable and adding DrugDiv as the class
+            deletedDrugTerm.removeClass('usersdrugDiv').addClass('DrugDiv');
+          });
 
-    
-        });
-
-        });
+      });
       
-
-
     });
 
     //THIS CODE IS FOR THE DELETE BUTTON ---------------------------------------
