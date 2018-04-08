@@ -310,6 +310,8 @@ $(document).ready(function(){
             event.preventDefault();
             console.log("the delete button was pushed!");
             $(this).parent().empty();
+            
+
     
         });
 
