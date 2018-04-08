@@ -159,7 +159,7 @@ $(document).ready(function(){
 
 
             //   WE ADDED THIS CODE TO HIDE AND SHOW DIVS ON PET PILLBOX
-            $("#login").hide();
+           // $("#login").hide();
             $("#everything").show();
             }
             // [END_EXCLUDE]
@@ -309,10 +309,10 @@ $(document).ready(function(){
           $(document).on('click', '.delete', function() {
             event.preventDefault();
             console.log("the delete button was pushed!");
-            $(this).parent().empty();
-            
-
-    
+            var deletedDrugTerm = $(this).parent();
+            deletedDrugTerm.detach().prependTo(".drugs-appear-here");
+            $(this).removeClass('delete').addClass('add').text("+");
+            deletedDrugTerm.removeClass('usersdrugDiv').addClass('DrugDiv');
         });
 
         });
