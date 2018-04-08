@@ -78,8 +78,8 @@
 }
 .js-search:hover{
     color: black;
-    border-color: black;
-    box-shadow:  rgba(50, 42, 56, 0.363);
+    background-color: rgba(50, 42, 56, 0.363);
+
 }
 
 .jumbotron{
